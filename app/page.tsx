@@ -7,6 +7,7 @@ export default function Home() {
     hp: 90,
     imgUrl: "/assets/test_pokemon.png",
     description: "Sleeping Pokemon",
+    type: "Fire",
     skills: [
       {
         name: "Body Slam",
@@ -40,5 +41,13 @@ export default function Home() {
   // if (process.env.NODE_ENV === "development") {
   //   return <PokeCard {...mockPokemon} />;
   // }
-  return <PokeCard pokemon={mockPokemon} />;
+  return (
+    <main style={{ 
+      backgroundColor: '#f8f9fa',
+      minHeight: '100vh',
+      width: '100%'
+    }}>
+      <PokeCard pokemon={mockPokemon} />
+    </main>
+  );
 }

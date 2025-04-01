@@ -5,12 +5,15 @@ import styles from "./pokeCard.module.css";
 import Image from "next/image";
 import { SkillRow } from "./skillRow";
 import { StatsItem } from "./statsItem";
+import { TYPE_COLORS } from "./constants";
+import clsx from "clsx";
 
 export interface Pokemon {
   name: string;
   id: number;
   hp: number;
   imgUrl: string;
+  type: string;
   description: string;
   skills: PokemonSkill[];
   stats: PokemonStat[];
@@ -28,11 +31,19 @@ export interface PokemonStat {
 }
 
 export const PokeCard = ({ pokemon }: { pokemon: Pokemon }) => {
-  const { name, id, hp, imgUrl, description, skills, stats } = pokemon;
+  const { name, id, hp, imgUrl, description, skills, stats, type } = pokemon;
+  const typeColors = TYPE_COLORS[type] || TYPE_COLORS.Normal;
 
   return (
-    <div id="card" className={styles.card}>
-      <div className={styles.container}>
+    <div 
+      id="card" 
+      className={styles.card}
+      style={{
+        background: typeColors.gradient,
+      }}
+    >
+      <div className={styles.holographic} />
+      <div className={clsx(styles.container)}>
         <div className={styles.header}>
           <span className={styles["pokemon-name"]}>{name}</span>
           <span className={styles["pokemon-hp"]}>
