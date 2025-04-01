@@ -1,0 +1,214 @@
+
+.card {
+  border: 1px solid grey;
+  border-radius: 15px;
+  --card-height: 300px;
+  height: var(--card-height);
+  width: calc(var(--card-height) * 5 / 7);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* background-color: lightblue; */
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.8), rgba(200, 200, 200, 0.9));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: black
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: radial-gradient(circle at 50% 50%, darkgrey, rgba(0, 0, 0, 0.0));
+  top: 20%;
+  left: 20%;
+  transform: rotate(45deg);
+  opacity: 0.5;
+} 
+
+.container {
+  box-sizing: border-box;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 15px;
+  height: calc(100% - 20px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.header {
+  box-sizing: content-box;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 85%;
+  height: 25px;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%); */
+  clip-path: path("M 0,0 L 150,0 L 175,25 L 22,25 A 15,15 0,0,1 10,14 L 7,8 A 20,25 0,0,0 5,5 L 0,0 Z");
+  font-weight: bold;
+  color: white;
+  background: black;
+  /* position: relative; */
+  mix-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.pokemon-name {
+  font-family: 'Futura', sans-serif;
+  font-size: small;
+  margin-right: 25px;
+
+}
+
+.pokemon-hp {
+  font-family: "Futura Condensed", sans-serif;
+  font-size: small;
+}
+
+.pokemon-hp-text {
+  font-family: 'Futura Condensed', sans-serif;
+  font-size: xx-small;
+  margin-right: 5px;
+}
+
+.pokemon-image-container{
+  max-height: 120px;
+}
+
+.pokemon {
+  object-fit: contain;
+  padding: 10px 20px;
+  position: relative;
+  transform: translate(-50%);
+  top: 10px;
+  left: 50%;
+}
+
+.body {
+  padding: 0 5px;
+  height: 110px;
+}
+
+hr.divider {
+  /* border-top: 3px solid black; */
+  margin: 5px 0;
+  background-color: black;
+  color: black;
+}
+
+.pokemon-description,.skill-description {
+  font-family: 'Futura Italic', sans-serif;
+  font-size: xx-small;
+}
+
+.skill-description {
+  min-height: 20px;
+}
+.pokemon-description {
+  text-align: center;
+}
+
+.skill-name,.skill-value {
+  font-family: 'Futura', sans-serif;
+  font-size: medium;
+}
+
+.skill-row {
+  padding: 0 10px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pokemon-number {
+  height: 25px;
+  width: 25px;
+  border-radius: 15px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 1px; */
+  position: relative;
+  top: 1px;
+  left: -2px;
+}
+.pokemon-number::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 0.5px solid black;
+  position: absolute;
+}
+
+.label-text {
+  font-family: 'Futura Italic', sans-serif;
+  font-size: 5px;
+}
+
+.label-number {
+  font-family: 'Futura', sans-serif;
+  font-size: 7px;
+  font-weight: 900;
+}
+
+.stat-row { 
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.stat-row .stat-item:last-child {
+  margin-right: 10px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 24px;
+}
+
+.stat-name {
+  font-family: "Futura Condensed", sans-serif;
+  font-size: xx-small;
+}
+
+.stat-value {
+  font-family: 'Futura', sans-serif;
+  font-size: small;
+}
+
+.btn {
+  position: absolute;
+  top: calc(50% + var(--card-height)/2 + 20px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Futura', sans-serif;
+  font-size: 1rem;
+  padding-top: 5px;
+  /* background-color: transparent; */
+  /* border: 0; */
+}
+
+/* svg {
+  position: absolute;
+  height: 0;
+  width: 0;
+} */
+
