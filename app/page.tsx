@@ -1,53 +1,28 @@
-import { PokeCard, Pokemon } from "./components/PokeCard/PokeCard";
+"use client";
+import { PokeCard } from "./components/PokeCard/PokeCard";
+import { useRef } from "react";
+import { useGetPokemon } from "./entities/pokemon/hooks";
 
 export default function Home() {
-  const mockPokemon: Pokemon = {
-    name: "SNORLAX",
-    id: 143,
-    hp: 90,
-    imgUrl: "/assets/test_pokemon.png",
-    description: "Sleeping Pokemon",
-    type: "Fire",
-    skills: [
-      {
-        name: "Body Slam",
-        power: 85,
-        description:
-          "Flip a coin. If heads, the Defending Pokémon is now paralyzed.",
-      },
-      {
-        name: "Body Slam",
-        power: 85,
-        description:
-          "Flip a coin. If heads, the Defending Pokémon is now paralyzed.",
-      },
-    ],
-
-    stats: [
-      {
-        name: "Attack",
-        value: 110,
-      },
-      {
-        name: "Defense",
-        value: 65,
-      },
-      {
-        name: "Speed",
-        value: 30,
-      },
-    ],
-  };
   // if (process.env.NODE_ENV === "development") {
   //   return <PokeCard {...mockPokemon} />;
   // }
+
+  const randomNumber = useRef<number>(Math.floor(Math.random() * 800) + 1);
+  const { pokemon, loading } = useGetPokemon(randomNumber.current);
+  console.log(pokemon, loading);
+
+  if (loading) <div>Loading...</div>;
+
   return (
-    <main style={{ 
-      backgroundColor: '#f8f9fa',
-      minHeight: '100vh',
-      width: '100%'
-    }}>
-      <PokeCard pokemon={mockPokemon} />
+    <main
+      style={{
+        backgroundColor: "#f8f9fa",
+        minHeight: "100vh",
+        width: "100%",
+      }}
+    >
+      {pokemon && <PokeCard pokemon={pokemon} />}
     </main>
   );
 }

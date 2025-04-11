@@ -7,28 +7,7 @@ import { SkillRow } from "./skillRow";
 import { StatsItem } from "./statsItem";
 import { TYPE_COLORS } from "./constants";
 import clsx from "clsx";
-
-export interface Pokemon {
-  name: string;
-  id: number;
-  hp: number;
-  imgUrl: string;
-  type: string;
-  description: string;
-  skills: PokemonSkill[];
-  stats: PokemonStat[];
-}
-
-export interface PokemonSkill {
-  name: string;
-  power: number;
-  description: string;
-}
-
-export interface PokemonStat {
-  name: string;
-  value: number;
-}
+import { Pokemon } from "@/app/entities/pokemon/types";
 
 export const PokeCard = ({ pokemon }: { pokemon: Pokemon }) => {
   const { name, id, hp, imgUrl, description, skills, stats, type } = pokemon;
@@ -63,7 +42,7 @@ export const PokeCard = ({ pokemon }: { pokemon: Pokemon }) => {
         <div className={styles["pokemon-description"]}>{description}</div>
 
         <div className={styles.body}>
-          {skills.map((skill, index) => (
+          {skills && skills.map((skill, index) => (
             <SkillRow
               key={index}
               skill={skill}
@@ -81,7 +60,7 @@ export const PokeCard = ({ pokemon }: { pokemon: Pokemon }) => {
           </div>
 
           <div className={styles["stat-row"]}>
-            {stats.map((stat, index) => (
+            {stats && stats.map((stat, index) => (
               <StatsItem key={index} stat={stat} />
             ))}
           </div>

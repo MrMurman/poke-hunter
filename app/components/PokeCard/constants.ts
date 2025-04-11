@@ -1,3 +1,5 @@
+import { Pokemon } from "@/app/entities/pokemon/types";
+
 export const TYPE_COLORS: { [key: string]: { gradient: string; noise: string } } = {
   Normal: {
     gradient: "radial-gradient(circle at 50% 50%, rgba(180, 180, 180, 0.9), rgba(220, 220, 220, 0.7))",
@@ -71,4 +73,42 @@ export const TYPE_COLORS: { [key: string]: { gradient: string; noise: string } }
     gradient: "radial-gradient(circle at 50% 50%, rgba(238, 153, 172, 0.9), rgba(255, 200, 220, 0.7))",
     noise: "rgba(238, 153, 172, 0.15)"
   }
+};
+
+export const mockPokemon: Pokemon = {
+  name: "SNORLAX",
+  id: 143,
+  hp: 90,
+  imgUrl: "/assets/test_pokemon.png",
+  description: "Sleeping Pokemon",
+  type: "Fire",
+  skills: [
+    {
+      name: "Body Slam",
+      power: 85,
+      description:
+        "Flip a coin. If heads, the Defending Pokémon is now paralyzed.",
+    },
+    {
+      name: "Body Slam",
+      power: 85,
+      description:
+        "Flip a coin. If heads, the Defending Pokémon is now paralyzed.",
+    },
+  ],
+
+  stats: [
+    {
+      name: "Attack",
+      value: 110,
+    },
+    {
+      name: "Defense",
+      value: 65,
+    },
+    {
+      name: "Speed",
+      value: 30,
+    },
+  ],
 };

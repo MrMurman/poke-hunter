@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./pokeCard.module.css";
-import { PokemonStat } from "./PokeCard";
+import { PokemonStat } from "@/app/entities/pokemon/types";
 
 export const StatsItem = ({ stat }: { stat: PokemonStat }) => {
   const { name, value } = stat;

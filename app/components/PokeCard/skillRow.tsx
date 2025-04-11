@@ -1,7 +1,7 @@
 import React from "react";
-import { PokemonSkill } from "./PokeCard";
 
 import styles from "./pokeCard.module.css";
+import { PokemonSkill } from "@/app/entities/pokemon/types";
 
 export const SkillRow = ({
   skill,
